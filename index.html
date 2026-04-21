@@ -943,6 +943,16 @@ function showResult(e){
   document.getElementById('b-wrg').textContent=`−${e.wrg}`;
   document.getElementById('b-acc').textContent=`${acc}%`;
   document.getElementById('b-rnk').textContent=`#${e.rank}`;
+  db.ref("leaderboard/" + Date.now()).set({
+  name: S.name,
+  dept: S.dept,
+  id: S.id,
+  marks: S.marks,
+  correct: S.cor,
+  wrong: S.wrg,
+  skipped: S.skp,
+  time: S.time
+});
 }
 
 const emoji=m=>m>=90?'🏆':m>=75?'🥈':m>=60?'🥉':m>=40?'📚':'💪';
